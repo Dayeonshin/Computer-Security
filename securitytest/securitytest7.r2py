@@ -1,0 +1,20 @@
+#offset in writeat
+
+if "testfile.txt.a" in listfiles():
+	removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+	removefile("testfile.txt.b")
+
+myfile = ABopenfile("testfile.txt", True)
+
+try:
+	myfile.writeat("test", -1) 
+except:
+	log("Do not deal with negative value")
+
+try:
+	myfile.writeat("test", 1000) 
+except:
+	log("Do not deal with offset in writeat")
+
+myfile.close()

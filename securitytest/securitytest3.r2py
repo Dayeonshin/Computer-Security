@@ -1,0 +1,14 @@
+#Test to see if file is closed
+
+if "testfile.txt.a" in listfiles():
+	removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+	removefile("testfile.txt.b")
+
+myfile = ABopenfile("testfile.txt", True)
+myfile.close()
+
+try:
+	myfile = ABopenfile("testfile.txt", True)
+except:
+	log("File Not Closed")
